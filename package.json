@@ -2,20 +2,20 @@
   "name": "mortgage-calc-api",
   "version": "1.0.0",
   "description": "Mortgage Related Financial Calculators API",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node server.js",
-    "server": "nodemon server.js"
+    "start": "node app.js",
+    "server": "nodemon app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Richard Hounslow",
   "license": "ISC",
   "dependencies": {
     "config": "^3.3.2",
     "express": "^4.17.1",
     "express-validator": "^6.6.1",
-    "swagger-jsdoc": "^4.3.0",
-    "swagger-ui-express": "^4.1.4"
+    "swagger-jsdoc": "^3.4.0",
+    "swagger-ui-express": "^4.0.7"
   },
   "devDependencies": {
     "concurrently": "^5.3.0",

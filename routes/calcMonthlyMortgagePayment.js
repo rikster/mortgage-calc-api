@@ -1,9 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-// @route   POST api/calcMonthlyMortgagePayment
-// @desc    Calculate Monthlu MortgagePayments
-// @access  Public
 router.post('/', (req, res) => {
     //res.send('Calc monthly mortgage payment');
 
