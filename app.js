@@ -44,8 +44,16 @@ app.use(express.json({extended: false}));
 app.get("/api/test", (req, res) => {
   res.json({msg: "Test Success"});
 });
-//app.get('/api/hello/', ((req, res) => res.json({msg: "Hello World"})));
 
+/**
+ * @swagger
+ * /api/calcMonthlyMortgagePayment:
+ * post:
+ *  description: Get mortgage monthl;y payment
+ *  responses:
+ *    '200':
+ *      description: A successful response
+ */
 app.use('/api/calcMonthlyMortgagePayment', require('./routes/calcMonthlyMortgagePayment'))
 
 app.listen(PORT, () => {
