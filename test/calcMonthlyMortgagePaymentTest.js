@@ -1,6 +1,6 @@
 let chai = require("chai");
 let chaiHttp = require("chai-http");
-let server = require("../app");
+let server = require("../server");
 
 //Assertion Style
 chai.should();
@@ -41,7 +41,9 @@ describe('Mortgage API', () => {
                 .end((err, response) => {
                     response.should.have.status(200);
                     response.body.should.be.a('object');
+                    response.body.should.have.property('payment');
                     response.body.payment.should.equal(2779.162389809977);
+                    response.body.should.have.property('payment').eq(2779.162389809977);
                     done();
                 })
         });

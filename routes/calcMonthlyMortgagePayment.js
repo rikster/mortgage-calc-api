@@ -11,7 +11,8 @@ router.post('/', (req, res) => {
     var monthlyInterestRate = intRate == 0 ? 0 : intRate / 12;
     var numberOfMonthlyPayments = termInYears * 12;
 
-    var payment = (((monthlyInterestRate * principal * (Math.pow((1 + monthlyInterestRate), numberOfMonthlyPayments)))) / ((Math.pow((1 + monthlyInterestRate), numberOfMonthlyPayments)) - 1));
+    var payment = (((monthlyInterestRate * principal * (Math.pow((1 + monthlyInterestRate), numberOfMonthlyPayments))))
+        / ((Math.pow((1 + monthlyInterestRate), numberOfMonthlyPayments)) - 1));
 
     res.json({
         "payment": payment

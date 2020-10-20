@@ -1,6 +1,6 @@
 const express = require("express");
 //const bodyParser = require("body-parser");
-const app = express();
+const server = express();
 const swaggerJsDoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
 
@@ -23,14 +23,14 @@ const swaggerOptions = {
         }
     },
     // ['./routes/*.js']
-    apis: ["app.js"]
+    apis: ["server.js"]
 };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+server.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 // Init Middleware - So we can accept body data
-app.use(express.json({extended: false}));
+server.use(express.json({extended: false}));
 
 /**
  * @swagger
@@ -41,7 +41,7 @@ app.use(express.json({extended: false}));
  *    '200':
  *      description: A successful response
  */
-app.get("/api/test", (req, res) => {
+server.get("/api/test", (req, res) => {
   res.json({msg: "Test Success"});
 });
 
@@ -54,10 +54,10 @@ app.get("/api/test", (req, res) => {
  *    '200':
  *      description: A successful response
  */
-app.use('/api/calcMonthlyMortgagePayment', require('./routes/calcMonthlyMortgagePayment'))
+server.use('/api/calcMonthlyMortgagePayment', require('./routes/calcMonthlyMortgagePayment'))
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`)
 });
 
-module.exports = app
+module.exports = server
